@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://5jt8x3hnneoa"]
+
+[ext_resource type="Texture2D" uid="uid://dfuofh4nwer0n" path="res://assets/bird1.png" id="1_jfan2"]
+[ext_resource type="Script" path="res://Cenas/Passaro/character_body_2d.gd" id="1_tyetg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yp10g"]
+radius = 18.0
+height = 50.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_tyetg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jfan2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yp10g")

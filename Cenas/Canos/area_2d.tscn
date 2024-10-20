@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca1hameby7wv2"]
+
+[ext_resource type="Script" path="res://Cenas/Canos/area_2d.gd" id="1_84fey"]
+[ext_resource type="Texture2D" uid="uid://den4sx3n8oo4t" path="res://assets/pipe.png" id="1_dulvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ucg7"]
+size = Vector2(67, 453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtd1a"]
+size = Vector2(68, 365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hefu"]
+size = Vector2(75, 151)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(182, 19)
+script = ExtResource("1_84fey")
+
+[node name="Cano_Superior" type="Sprite2D" parent="."]
+position = Vector2(407, -3.99999)
+scale = Vector2(1, 0.817857)
+texture = ExtResource("1_dulvl")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(407, -3.5)
+shape = SubResource("RectangleShape2D_0ucg7")
+
+[node name="Cano_Inferior" type="Sprite2D" parent="."]
+position = Vector2(407, 559)
+scale = Vector2(1, 0.653571)
+texture = ExtResource("1_dulvl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(406, 562)
+shape = SubResource("RectangleShape2D_jtd1a")
+
+[node name="Pontos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pontos"]
+position = Vector2(406.5, 301.5)
+shape = SubResource("RectangleShape2D_1hefu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Pontos" to="." method="_on_pontos_body_entered"]

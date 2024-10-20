@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b343n8wuual42"]
+
+[ext_resource type="Script" path="res://Cenas/AutoLoad/auto_load.gd" id="1_b75wk"]
+
+[node name="AutoLoad" type="Node2D"]
+script = ExtResource("1_b75wk")

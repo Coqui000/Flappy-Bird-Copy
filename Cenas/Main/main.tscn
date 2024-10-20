@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3kcg2g82ala1"]
+
+[ext_resource type="Script" path="res://Cenas/Main/main.gd" id="1_cki2s"]
+[ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_xs1p5"]
+[ext_resource type="PackedScene" uid="uid://5jt8x3hnneoa" path="res://Cenas/Passaro/character_body_2d.tscn" id="2_5gsy0"]
+[ext_resource type="PackedScene" uid="uid://ca1hameby7wv2" path="res://Cenas/Canos/area_2d.tscn" id="4_18ckc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ejvp"]
+font_size = 60
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_cki2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(400.5, 300)
+scale = Vector2(0.929398, 0.783854)
+texture = ExtResource("1_xs1p5")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_5gsy0")]
+position = Vector2(67, 276)
+
+[node name="Area2D" parent="." instance=ExtResource("4_18ckc")]
+position = Vector2(-774, 80)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 59.0
+offset_bottom = 87.0
+text = "0"
+label_settings = SubResource("LabelSettings_6ejvp")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
